@@ -30,11 +30,14 @@ public class CalculatorServer {
                 while (in.hasNextLine()) {
                     out.println(in.nextLine().toUpperCase());
                 }
-            } catch (Exception e) {
+            }
+            catch (Exception e) {
                 System.out.println("Error:" + socket);
-            } finally {
+            }
+            finally {
                 try { socket.close();
-                } catch (IOException e) {
+                }
+                catch (IOException e) {
                     e.printStackTrace();
                 }
                 System.out.println("Closed: " + socket);
