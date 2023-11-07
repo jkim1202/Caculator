@@ -58,6 +58,10 @@ public class CalculatorServer {
                 result = "FAIL NOT_A_NUMBER"; // 숫자가 아닌 값 처리
                 return result;
             }
+            if(request.size() == 1){
+                result = "FAIL NOT_ENOUGH_ARGUMENT";
+                return result;
+            }
             switch (operator) {
                 case "ADD":
                     int sum = 0;
@@ -67,7 +71,7 @@ public class CalculatorServer {
                     result = result + "SUCCESS " + sum; // 덧셈 결과 반환
                     break;
                 case "SUB":
-                    if (request.size() != 2) {
+                    if (request.size() > 2) {
                         result = result + "FAIL TOO_MANY_ARGUMENTS"; // 잘못된 인수 처리
                         break;
                     }
